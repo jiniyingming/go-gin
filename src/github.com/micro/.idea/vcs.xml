@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/cli" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/examples" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-api" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-bot" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-log" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-plugins" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-rcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/go-web" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/hipchat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mdns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/protoc-gen-micro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/util" vcs="Git" />
+  </component>
+</project>

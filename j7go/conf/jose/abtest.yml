@@ -1,0 +1,18 @@
+abtest:
+  testVersion : abcdefg
+  timeoutSecond: 7200 #失效时间 检查 testVersion 是否一样，一样的话，还是跳过的 这个是供kong那边快速使用的...
+
+dyeing:
+  - key: a1
+    mode: polling  #random polling #remainder取余
+    distribution: #random polling有效
+      - chromosome: a1
+        weight: 10
+      - chromosome: a2
+        weight: 10
+      - chromosome: a3
+        weight: 10
+    remainder: #仅custom有效
+      rule: remainder
+      divisor: 5
+      dividendKey: userId

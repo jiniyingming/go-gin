@@ -1,0 +1,3 @@
+mongodb: "json_statistics"
+mongocollection: "statistics"
+issplit : 1

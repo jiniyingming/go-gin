@@ -1,0 +1,156 @@
+log:
+  level: "debug"
+  encoding: "console" # `json` or `console`
+  encoderConfig:
+    messageKey: "message"
+    levelKey: "level"
+    nameKey: "greeterSrv"
+  outputPaths:
+#    - /logs/j7go/demo.log
+    - stdout
+  ErrorOutputPaths:
+#    - /logs/j7go/error.log
+    - stderr
+
+#server:
+#  - protocol: "application"  #grpc
+#    #nodeId: "2"  #设置，会顶替以前的，不设置，则同步存在形成分布式
+#    version: "1.0.0"
+#    enableModules:
+#      - brand
+#      - ddgadmin
+
+server:
+#  - ip: "0.0.0.0"
+#    port: 0
+#    protocol: "grpc"  #grpc
+##    nodeId: "2"  #设置，会顶替以前的，不设置，则同步存在形成分布式
+#    version: "1.0.0"
+#    enableModules:
+#      - ddgadmin
+##  - ip: "0.0.0.0"
+##    port: 8082
+##    protocol: "http"  #grpc
+##    #nodeId: "2"  #设置，会顶替以前的，不设置，则同步存在形成分布式
+##    version: "1.0"
+#  - ip: "0.0.0.0"
+#    port: 0
+#    protocol: "http"  #grpc
+#    #nodeId: "1"
+#    version: "2.1.11"
+#    enableModules:
+#      - tget
+#  - ip: "0.0.0.0"
+#    port: 0
+#    protocol: "http"  #grpc
+#    version: "1.1.1"
+#    enableModules:
+#      - tget
+
+  - ip: "0.0.0.0"
+    port: 10001
+    protocol: "http"  #grpc
+    version: "1.0.0"
+    enableModules:
+      - bzj
+
+  - ip: "0.0.0.0"
+    port: 10002
+    protocol: "http"  #grpc
+    version: "1.0.0"
+    enableModules:
+      - json_statistics
+
+  - ip: "0.0.0.0"
+    port: 10003
+    protocol: "http"  #grpc
+    version: "1.0.0"
+    enableModules:
+      - abtest
+
+  - ip: "0.0.0.0"
+    port: 0
+    protocol: "http"  #grpc
+    version: "1.0.0"
+    enableModules:
+      - goods_import_record
+
+grpc_stream:
+  perRequest: 20 # RPS 单位s, 允许每秒处理的请求总数
+  processingTimeout: 2 #grpc 双向stream中，每个请求的最大处理时间，单位s
+
+
+service:
+  key: "/7YES_SERVICE/j7go"
+  ttl: 10 # 单位s
+  heartbeat: 1 # 单位s heartbeat的设置要比ttl略小, 防止过期
+
+#注释掉即可不注册etcd##
+etcd:
+  endpoints:
+    - "127.0.0.1:2380"
+  autoSyncInterval: 0
+  dialTimeout: 3
+  dialKeepAliveTime: 3
+  dialKeepAliveTimeout: 3
+  username: ""
+  password: ""
+
+redis:
+  addr: "127.0.0.1:6379"
+  password: ""
+  db: 0
+  MaxIdle: 10
+  MaxActive: 10
+  IdleTimeout: 10
+  Wait: true
+  MaxConnLifetime: 600
+
+#mongodb:
+#  addr:  "mongodb://127.0.0.1:27017/?maxPoolSize=64"
+#  MaxIdle: 1
+#  MaxActive: 10
+#  TimeOut: 3
+
+
+db:
+  name: "ddg_local"
+  maxConnNum: 10
+  maxIdleConns: 5
+  MaxLifetime:  30
+  PingTickerTime: 9   #小于mysql的	interactive timeout
+  master:
+    addr: "127.0.0.1:3306"
+    user: "root"
+    password: "123"
+    timezone: "Asia/Shanghai"
+    weight: 1
+  slave:
+    -
+      addr: "127.0.0.1:3306"
+      user: "root"
+      password: "123"
+      timezone: "Asia/Shanghai"
+      weight: 1
+
+
+
+
+#nsq:
+#  config:
+#    poolCap: 1 #producer connect pool max number, set to 0 that means Unlimited
+#    lookupdPollInterval: 1000000000 #连接超时时间
+#    Concurrency: 3 #consumer handler concurrency number
+#  producer: "127.0.0.1:4161"
+#  consumer:
+#    -
+#      "127.0.0.1:4161"
+#    -
+#      "127.0.0.1:4161"
+
+#mq:
+#  endpoint: "http://1821583645684515.mq-amqp.cn-shanghai-867405-a.aliyuncs.com"
+#  accessKey: "LTAIszSGmEN8njj9"
+#  accessSecret: "5IB6VSoMCmcyyhxktouRRVzkgTyMF7"
+#  numOfMessages: 16 #一次最多消费3条(最多可设置为16条)
+#  waitseconds: 30 #长轮询时间3秒（最多可设置为30秒）

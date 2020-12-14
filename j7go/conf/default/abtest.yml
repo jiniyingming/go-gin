@@ -1,0 +1,42 @@
+abtest:
+  - key: 轮询
+    mode: polling  #random polling #remainder取余
+    distribution: #random polling有效
+      - chromosome: a1
+        weight: 33
+      - chromosome: a2
+        weight: 33
+      - chromosome: a3
+        weight: 33
+    remainder: #仅custom有效
+      rule: remainder
+      divisor: 5
+      dividendKey: userId
+  - key: 取余
+    mode: remainder  #random polling #remainder取余
+    distribution: #random polling有效
+      - chromosome: a1
+        weight: 33
+      - chromosome: a2
+        weight: 33
+      - chromosome: a3
+        weight: 33
+    remainder: #仅custom有效
+      rule: remainder
+      divisor: 5
+      dividendKey: userId
+  - key: 随机
+    mode: random  #random polling #remainder取余
+    distribution: #random polling有效
+      - chromosome: a1
+        weight: 25
+      - chromosome: a2
+        weight: 25
+      - chromosome: a3
+        weight: 25
+      - chromosome: a3
+        weight: 25
+    remainder: #仅custom有效
+      rule: remainder
+      divisor: 5
+      dividendKey: userId

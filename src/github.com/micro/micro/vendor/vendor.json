@@ -1,0 +1,19 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "RK/IX8u99xu0awzUklRSvQs+pKQ=",
+			"path": "go.etcd.io/etcd",
+			"revision": "8c80efb886ec798645c1aebf07689a8a733e663b",
+			"revisionTime": "2018-10-18T23:39:01Z"
+		},
+		{
+			"checksumSHA1": "dOTPc9AnUrucXTh6dFhcj6Xyim8=",
+			"path": "go.etcd.io/etcd/clientv3",
+			"revision": "8c80efb886ec798645c1aebf07689a8a733e663b",
+			"revisionTime": "2018-10-18T23:39:01Z"
+		}
+	],
+	"rootPath": "github.com/micro/micro"
+}

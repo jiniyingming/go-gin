@@ -1,0 +1,19 @@
+log:
+  level: "warn"
+  encoding: "console" # `json` or `console`
+  encoderConfig:
+    messageKey: "message"
+    levelKey: "level"
+    nameKey: "greeterSrv"
+  outputPaths:
+    - /www/wwwroot/log/sj/10003.log
+  ErrorOutputPaths:
+    - /www/wwwroot/log/sj/10003.log
+
+server:
+  - ip: "0.0.0.0"
+    port: 10003
+    protocol: "http"
+    version: "1.0.0"
+    enableModules:
+      - process_limitflow

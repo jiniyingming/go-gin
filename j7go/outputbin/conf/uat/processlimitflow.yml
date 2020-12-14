@@ -1,0 +1,40 @@
+limitflowall:
+  appendCmdLog: "./log/process_newlog.json"
+  runtimelessNanoSecond: 150000000
+  runtimelessCmdLog: "./log/process_notice.json"
+  torunsave: "./log/process_limitflow_torun.json"
+  limitedFlow: 20  # 总进程数量限制，0不限
+  checkTime: 5    # 几秒循环检查待处理进程列表情况
+
+
+limitflowprocessdefault:
+  typeKey : "__defaultProcess__"
+  limitedFlow : 3
+  runingHeartBeat : 59
+  statusCallBack : "http://oapiuat.daidaigou.cn/callbacknewprocess/newprocess"
+  maxTimeOut : 0
+
+limitflowprocess:
+  - typeKey: "lf1"
+    limitedFlow: 1
+    runingHeartBeat: 59
+    statusCallBack: "http://oapiuat.daidaigou.cn/callbacknewprocess/newprocess"
+    maxTimeOut: 0
+  - typeKey: "lfes1"
+    limitedFlow: 1
+    runingHeartBeat: 59
+    statusCallBack: "http://oapiuat.daidaigou.cn/callbacknewprocess/newprocess"
+    maxTimeOut: 0
+
+  - typeKey: "apisync_dosyncimgs"
+    limitedFlow: 5
+    runingHeartBeat: 59
+    statusCallBack: "http://oapiuat.daidaigou.cn/callbacknewprocess/newprocess"
+    maxTimeOut: 0
+
+  - typeKey: "saleplan_dobactckjob"
+    limitedFlow: 1
+    runingHeartBeat: 59
+    statusCallBack: "http://oapiuat.daidaigou.cn/callbacknewprocess/saleplan"
+    maxTimeOut: 0
+
